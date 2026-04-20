@@ -1,0 +1,18 @@
+# Java build output
+out/
+bin/
+build/
+target/
+
+# IntelliJ
+.idea/
+*.iml
+
+# VS Code Java workspace cache
+.classpath
+.project
+.settings/
+
+# OS
+.DS_Store
+Thumbs.db
