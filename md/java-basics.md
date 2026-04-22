@@ -26,6 +26,11 @@ In this repo:
 - Source code is in `src/`
 - Compiled `.class` files go to `out/`
 
+What the main flags mean:
+
+- `-d out` tells `javac` where to put the compiled `.class` files.
+- `-cp out` tells `java` where to look for compiled classes when running.
+
 Use this every time:
 
 ```bash

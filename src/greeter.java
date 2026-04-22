@@ -4,8 +4,13 @@ public class greeter {
 
     }
 
+    public static void main(String[] args) {
+        greeter greeter = new greeter("judah");
+        System.out.println(greeter.hello());
+    }
+
     public String hello() {
-        return "hellow, " + name + "!";
+        return "hello, " + name + "!";
     }
 
     private String name;
