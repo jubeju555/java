@@ -1,58 +1,107 @@
-# Java Basics (Crash Course)
+# Java Basics Quick Guide
 
-## File Basics
+This file is a beginner-friendly cheat sheet for compiling and running Java.
 
-- Java source files end with `.java`.
-- Class name should match the file name for public classes.
-- Example: class `Main` should be in `Main.java`.
+## 1) Core Rules
 
-## Minimal Program
+- Java files end in `.java`.
+- Public class name must match the file name exactly (including case).
+- Program starts at:
+    `public static void main(String[] args)`
+
+Example:
 
 ```java
 public class Main {
-    public static void main(String[] args) {
-        System.out.println("Hello, Java");
-    }
+        public static void main(String[] args) {
+                System.out.println("Hello, Java");
+        }
 }
 ```
 
-## Compile Commands
+## 2) Your Project Flow (src -> out)
 
-Compile one file:
+In this repo:
+
+- Source code is in `src/`
+- Compiled `.class` files go to `out/`
+
+Use this every time:
+
+```bash
+javac -d out src/*.java
+java -cp out Main
+```
+
+If your main class is lowercase `main`, run:
+
+```bash
+java -cp out main
+```
+
+## 3) Command Reference
+
+### Check your Java tools
+
+```bash
+java -version
+javac -version
+```
+
+### Compile
+
+Compile one file in current folder:
 
 ```bash
 javac Main.java
 ```
 
-Compile and place class files in output directory:
+Compile one file from `src` to `out`:
 
 ```bash
 javac -d out src/Main.java
 ```
 
-Compile multiple files:
+Compile all files from `src` to `out`:
 
 ```bash
 javac -d out src/*.java
 ```
 
-## Run Commands
+### Run
 
-Run compiled class from current directory:
+Run class from current folder:
 
 ```bash
 java Main
 ```
 
-Run with classpath:
+Run class from `out` using classpath:
 
 ```bash
 java -cp out Main
 ```
 
-## Package Example
+## 4) Common Mistakes
 
-If file starts with:
+- Wrong command:
+    `java cp out Main`
+
+    Correct:
+    `java -cp out Main`
+
+- Wrong class name case:
+    `Main` and `main` are different.
+
+- No `main` method:
+    class compiles, but cannot run as a program.
+
+- Compiling from wrong folder:
+    if source is in `src/`, include `src/` path in the command.
+
+## 5) Packages (when you add them)
+
+If your file starts with:
 
 ```java
 package com.example;
@@ -70,29 +119,11 @@ Run:
 java -cp out com.example.Main
 ```
 
-## Common Tool Commands
+## 6) Build Tools (Later)
 
-Check Java versions:
-
-```bash
-java -version
-javac -version
-```
-
-Initialize a simple Maven project (optional):
-
-```bash
-mvn archetype:generate
-```
-
-Run Maven build (inside Maven project):
+Use these when your project grows:
 
 ```bash
 mvn clean package
-```
-
-Run Gradle build (inside Gradle project):
-
-```bash
 gradle build
 ```
