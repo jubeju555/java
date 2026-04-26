@@ -1,134 +1,133 @@
-# Java Basics Quick Guide
+# Java Basics + Mini Projects
 
-This file is a beginner-friendly cheat sheet for compiling and running Java.
+This file is a hands-on starter guide. You will learn core Java syntax and build small projects that are more practical than Hello World.
 
-## 1) Core Rules
+## 1) Core Java Rules
 
-- Java files end in `.java`.
-- Public class name must match the file name exactly (including case).
-- Program starts at:
-    `public static void main(String[] args)`
-
-Example:
+- Java source files end in `.java`.
+- Public class name must match the file name exactly (case-sensitive).
+- Every runnable app has:
 
 ```java
-public class Main {
-        public static void main(String[] args) {
-                System.out.println("Hello, Java");
-        }
-}
+public static void main(String[] args)
 ```
 
-## 2) Your Project Flow (src -> out)
+## 2) Compile and Run Flow
 
 In this repo:
 
-- Source code is in `src/`
-- Compiled `.class` files go to `out/`
+- Source files live in `src/`
+- Compiled files should go in `out/`
 
-What the main flags mean:
-
-- `-d out` tells `javac` where to put the compiled `.class` files.
-- `-cp out` tells `java` where to look for compiled classes when running.
-
-Use this every time:
-
-```bash
-javac -d out src/*.java
-java -cp out Main
-```
-
-If your main class is lowercase `main`, run:
-
-```bash
-java -cp out main
-```
-
-## 3) Command Reference
-
-### Check your Java tools
-
-```bash
-java -version
-javac -version
-```
-
-### Compile
-
-Compile one file in current folder:
-
-```bash
-javac Main.java
-```
-
-Compile one file from `src` to `out`:
-
-```bash
-javac -d out src/Main.java
-```
-
-Compile all files from `src` to `out`:
+Compile all:
 
 ```bash
 javac -d out src/*.java
 ```
 
-### Run
-
-Run class from current folder:
+Run any class with a `main` method:
 
 ```bash
-java Main
+java -cp out ClassName
 ```
 
-Run class from `out` using classpath:
+Examples:
 
 ```bash
-java -cp out Main
+java -cp out CalculatorProject
+java -cp out GradeAnalyzerProject
+java -cp out ExpenseTrackerProject
 ```
 
-## 4) Common Mistakes
+## 3) Java Basics You Need First
 
-- Wrong command:
-    `java cp out Main`
-
-    Correct:
-    `java -cp out Main`
-
-- Wrong class name case:
-    `Main` and `main` are different.
-
-- No `main` method:
-    class compiles, but cannot run as a program.
-
-- Compiling from wrong folder:
-    if source is in `src/`, include `src/` path in the command.
-
-## 5) Packages (when you add them)
-
-If your file starts with:
+### Variables and Types
 
 ```java
-package com.example;
+int age = 22;
+double score = 88.5;
+boolean active = true;
+String name = "Judah";
 ```
 
-Compile:
+### Conditionals
 
-```bash
-javac -d out src/com/example/Main.java
+```java
+if (score >= 90) {
+    System.out.println("A");
+} else {
+    System.out.println("Not A");
+}
 ```
 
-Run:
+### Loops
 
-```bash
-java -cp out com.example.Main
+```java
+for (int i = 0; i < 5; i++) {
+    System.out.println(i);
+}
 ```
 
-## 6) Build Tools (Later)
+### Methods
 
-Use these when your project grows:
-
-```bash
-mvn clean package
-gradle build
+```java
+public static int add(int a, int b) {
+    return a + b;
+}
 ```
+
+## 4) Project 1: CalculatorProject
+
+What you practice:
+
+- `Scanner` input
+- `switch` statements
+- basic arithmetic
+- input validation
+
+Try:
+
+1. Add modulus (`%`) support.
+2. Add a loop so the user can run another calculation.
+
+## 5) Project 2: GradeAnalyzerProject
+
+What you practice:
+
+- arrays
+- loops
+- min/max/average logic
+- simple letter grade function
+
+Try:
+
+1. Show class rank for each score.
+2. Count how many A, B, C, D, F grades.
+
+## 6) Project 3: ExpenseTrackerProject
+
+What you practice:
+
+- `ArrayList`
+- menu-driven loop
+- custom methods
+- formatting totals
+
+Try:
+
+1. Add category support (food, transport, etc.).
+2. Add a monthly budget warning when total exceeds a limit.
+
+## 7) Common Mistakes
+
+- `java cp out Main` is wrong; use `java -cp out Main`.
+- Class name case matters (`Main` is not `main`).
+- A class without `main` compiles but is not directly runnable.
+- If you add `package` declarations later, your run command changes.
+
+## 8) Suggested Learning Order
+
+1. Read this file once.
+2. Run all three projects.
+3. Modify each project with one feature.
+4. Create your own fourth project using the same structure.
