@@ -54,3 +54,41 @@ print("\nFirst 5 chars of '\(greeting)': \(hello)")
 // Replace
 let replaced = sentence.replacingOccurrences(of: "Swift", with: "Kotlin")
 print("After replacement: \(replaced)")
+
+// Additional examples: common tasks you'll see in larger codebases
+
+// 1) Palindrome check (ignores non-letters and case)
+func isPalindrome(_ s: String) -> Bool {
+    let cleaned = s.lowercased().filter { $0.isLetter }
+    return cleaned == String(cleaned.reversed())
+}
+print("\nPalindrome checks:")
+print("'Level' -> \(isPalindrome("Level"))")
+print("'A man, a plan, a canal, Panama' -> \(isPalindrome("A man, a plan, a canal, Panama"))")
+
+// 2) Title case (capitalize each word)
+let titleCased = words.map { $0.capitalized }.joined(separator: " ")
+print("\nTitle cased: \(titleCased)")
+
+// 3) Word counts and joining
+let wordCount = words.count
+let dashed = words.joined(separator: "-")
+print("Word count: \(wordCount), Joined with dashes: \(dashed)")
+
+// 4) Finding ranges / indices
+if let range = sentence.range(of: "World") {
+    let position = sentence.distance(from: sentence.startIndex, to: range.lowerBound)
+    print("\n'World' starts at character index: \(position)")
+} else {
+    print("\n'World' not found")
+}
+
+// 5) Trimming and whitespace handling
+let padded = "   surrounded by spaces   "
+print("\nBefore trim:'\(padded)' After trim:'\(padded.trimmingCharacters(in: .whitespaces))'")
+
+// 6) Unicode-aware character count vs. UTF-16 count
+let flag = "🇺🇸"
+print("\nFlag: \(flag), characters.count = \(flag.count), utf16.count = \(flag.utf16.count)")
+
+// End of extra examples
