@@ -7,6 +7,10 @@ fun main() {
     val personName = "Judah"
     val personAge = 25
     val personEmail: String? = null
+
+    val person2name = "judah"
+    val person2age = 21
+    val personalemail2: String? = null
     
     println("Name: $personName")
     println("Age: $personAge")
